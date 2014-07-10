@@ -259,5 +259,18 @@ void DecompressImage( u8* rgba, int width, int height, void const* blocks, int f
 
 } // namespace squish
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+void LibsquishCompressMasked( squish::u8 const* rgba, int mask, void* block, int flags, float* metric = 0 );
+void LibsquishCompress( squish::u8 const* rgba, void* block, int flags, float* metric = 0 );
+void LibsquishDecompress( squish::u8* rgba, void const* block, int flags );
+int LibsquishGetStorageRequirements( int width, int height, int flags );
+void LibsquishCompressImage( squish::u8 const* rgba, int width, int height, void* blocks, int flags, float* metric = 0 );
+void LibsquishDecompressImage( squish::u8* rgba, int width, int height, void const* blocks, int flags );
+#ifdef __cplusplus
+}
+#endif
+
 #endif // ndef SQUISH_H
 
